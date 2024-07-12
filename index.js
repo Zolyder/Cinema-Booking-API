@@ -1,15 +1,18 @@
 'use strict';
+
 const express = require('express');
 const dotenv = require('dotenv');
 const { Sequelize } = require('sequelize');
+const errorHandler = require('./middleware/errorHandler');
 const routes = require('./routes');
 
-dotenv.config();
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app = express();
 app.use(express.json());
+app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 const sequelize = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
   host: process.env.DB_HOST,
@@ -36,4 +39,8 @@ const startServer = async () => {
   }
 };
 
-startServer();
+if (require.main === module) {
+  startServer();
+}
+
+module.exports = app; // Export the app for testing
