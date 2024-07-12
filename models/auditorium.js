@@ -11,7 +11,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     deletedAt: {
       type: DataTypes.DATE,
-    }
+    },
+    showTimes: {
+      type: DataTypes.ARRAY(DataTypes.STRING), // Almacena los horarios como una matriz de cadenas
+      allowNull: false,
+      defaultValue: ['3:00 PM', '5:00 PM', '7:00 PM'], // Horarios por defecto
+    },
   }, {
     tableName: 'Auditoriums',
     timestamps: true,
