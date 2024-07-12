@@ -3,13 +3,19 @@ const express = require('express');
 const router = express.Router();
 const models = require('../models');
 const crudController = require('../controllers/crudController');
+const bookingController = require('../controllers/bookingController');
+const auth = require('../middleware/auth');
 
-const bookingController = crudController(models.Booking);
+const bookingCrud = crudController(models.Booking);
 
-router.post('/', bookingController.create);
-router.get('/', bookingController.findAll);
-router.get('/:id', bookingController.findOne);
-router.put('/:id', bookingController.update);
-router.delete('/:id', bookingController.remove);
+router.get('/', bookingCrud.findAll);
+router.get('/:id', bookingCrud.findOne);
+router.put('/:id', bookingCrud.update);
+router.delete('/:id', bookingCrud.remove);
+
+// Create new booking
+router.post('/', auth, bookingController.create);
+// Get confirmation booking
+router.get('/:id/confirmation', auth, bookingController.getConfirmation);
 
 module.exports = router;
