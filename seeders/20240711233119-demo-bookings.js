@@ -13,7 +13,7 @@ module.exports = {
       },
       {
         bookerId: 2,
-        auditoriumId: 2,
+        auditoriumId: 1,
         seatId: 2,
         showTime: '5:00 PM',
         createdAt: new Date(),
