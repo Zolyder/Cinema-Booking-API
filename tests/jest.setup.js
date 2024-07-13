@@ -10,7 +10,6 @@ dotenv.config({ path: '.env.test' });
 // Set the environment to 'test' before all tests
 beforeAll(async () => {
   process.env.NODE_ENV = 'test';
-
   // Run migrations
   execSync('npx sequelize-cli db:migrate', { stdio: 'inherit' });
 });
