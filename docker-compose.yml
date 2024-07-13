@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  cinema-db:
+    image: postgres:16.1-alpine
+    container_name: cinema-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: cinema-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  cinema-test-db:
+    image: postgres:16.1-alpine
+    container_name: cinema-test-db
+    environment:
+      POSTGRES_USER: adminTest
+      POSTGRES_PASSWORD: adminTest
+      POSTGRES_DB: cinema-test-db
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+  app:
+    build: .
+    container_name: cinema-app
+    entrypoint: ["/app/entrypoint.sh"]
+    environment:
+      NODE_ENV: development
+      DB_USERNAME: admin
+      DB_PASSWORD: admin
+      DB_DATABASE: cinema-db
+      DB_HOST: cinema-db
+      DB_DIALECT: postgres
+      DB_PORT: 5432
+      PORT: 8080
+      JWT_SECRET: b7d62425a34963e5bb78799cc8be9215dca6f53eff54183ff9946a68816db966
+    depends_on:
+      - cinema-db
+      - cinema-test-db
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    command: npm start
+
+volumes:
+  postgres_data:
+  postgres_test_data:

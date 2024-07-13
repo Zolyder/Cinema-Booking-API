@@ -6,6 +6,7 @@ const { Sequelize } = require('sequelize');
 const errorHandler = require('./middleware/errorHandler');
 const routes = require('./routes');
 
+dotenv.config();
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const app = express();

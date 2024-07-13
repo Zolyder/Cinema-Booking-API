@@ -3,16 +3,24 @@
     "username": "admin",
     "password": "admin",
     "database": "cinema-db",
-    "port": 5432,
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": "cinema-db",
+    "dialect": "postgres",
+    "port": 5432
   },
   "test": {
     "username": "adminTest",
     "password": "adminTest",
     "database": "cinema-test-db",
-    "port": 5433,
+    "host": "cinema-test-db",
+    "dialect": "postgres",
+    "port": 5433
+  },
+  "production": {
+    "username": "admin",
+    "password": "admin",
+    "database": "cinema-prod-db",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "port": 5432
   }
 }
