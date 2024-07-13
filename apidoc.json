@@ -1,0 +1,12 @@
+{
+  "name": "Cinema Booking API",
+  "version": "1.0.0",
+  "description": "API for booking cinema tickets and managing auditoriums.",
+  "title": "Cinema Booking API Documentation",
+  "url": "http://localhost:8080/api",
+  "template": {
+    "withCompare": false,
+    "withGenerator": true
+  },
+  "sampleUrl": false
+}

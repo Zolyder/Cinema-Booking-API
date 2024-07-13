@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const { Sequelize } = require('sequelize');
 const errorHandler = require('./middleware/errorHandler');
 const routes = require('./routes');
+const path = require('path');
 
 dotenv.config();
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
@@ -25,6 +26,9 @@ app.get('/test', (req, res) => {
 });
 
 app.use('/api', routes);
+
+// Serve APIDoc documentation
+app.use('/api/v1/api-docs', express.static(path.join(__dirname, 'apidoc')));
 
 const startServer = async () => {
   try {
