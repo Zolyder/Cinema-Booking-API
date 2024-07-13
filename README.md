@@ -115,10 +115,11 @@ npm run apidoc
 
 ## Endpoints
 GET /api/v1/api-docs: Para ver documentación más a detalle de los endpoints
-POST /api/v1/bookers/register: Registrar un nuevo usuario
-POST /api/v1/bookers/login: Iniciar sesión
-GET /api/v1/auditoriums/availability: Ver disponibilidad de salas y horarios
-POST /api/v1/bookings: Crear una nueva reserva
-GET /api/v1/bookings/:id/confirmation: Obtener confirmación de una reserva
+
+- POST /api/v1/bookers/register: Registrar un nuevo usuario
+- POST /api/v1/bookers/login: Iniciar sesión
+- GET /api/v1/auditoriums/availability: Ver disponibilidad de salas y horarios
+- POST /api/v1/bookings: Crear una nueva reserva
+- GET /api/v1/bookings/:id/confirmation: Obtener confirmación de una reserva
 
 ### Autor: Luis Carlos Villa Ramírez
