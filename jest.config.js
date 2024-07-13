@@ -195,9 +195,6 @@ const config = {
   // watchman: true,
   testEnvironment: 'node',
   setupFilesAfterEnv: ['./tests/jest.setup.js'],
-  // testPathIgnorePatterns: ['/node_modules/'],
-  // globalSetup: './tests/globalSetup.js',
-  // globalTeardown: './tests/globalTeardown.js',
   testMatch: ['**/tests/**/*.test.js'],
   maxWorkers: 1,
 };
